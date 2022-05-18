@@ -5,28 +5,23 @@ pygame.init()
 width = 960
 height = 540
 
-main_window = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Main Window!")
+window = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Main Window")
 fps = pygame.time.Clock()
-main_window.fill((255,0,0))
+window.fill((180,0,0))
 
-red = (255, 0, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
+sprites = []
 
-colours = [red, green, blue]
-
-rectangles = []
-
-for i in range (1, 1000):
-    rectangle = pygame.Rect(random.randint(1, 960), random.randint(1, 540), 150, 170)
-    rectangles.append(rectangle)
+for i in range (1, 30):
+    test_sprite = pygame.image.load("ready_1.png")
+    sprite_new = pygame.transform.scale(test_sprite, (200, 200))
+    sprites.append(sprite_new)
 
 i = 0
 
-while i < len(rectangles):
-    pygame.draw.rect(main_window, colours[random.randint(0,2)], rectangles[i])
-    i +=1
+while i < len(sprites):
+    window.blit(sprites[i], (random.randint(1, 800), random.randint(1, 340)))
+    i += 1
 
 j = True
 
